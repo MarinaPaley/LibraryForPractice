@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDemo", "LibraryDemo\LibraryDemo.csproj", "{B040DD76-F237-4B3A-8462-183D3876C41F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDemo", "LibraryDemo\LibraryDemo.csproj", "{B040DD76-F237-4B3A-8462-183D3876C41F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{0C300E48-2B28-4017-A343-1485629744E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{0C300E48-2B28-4017-A343-1485629744E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staff", "Staff\Staff.csproj", "{137F74D2-3396-41AB-93BC-5DFCA8EB9516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staff", "Staff\Staff.csproj", "{137F74D2-3396-41AB-93BC-5DFCA8EB9516}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{300D4C83-C6B9-41EF-B58C-C04100F62B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{300D4C83-C6B9-41EF-B58C-C04100F62B74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9FF29C8-BB6F-4987-AF03-8DEF59FC2E4E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
