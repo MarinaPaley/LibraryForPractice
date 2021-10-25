@@ -2,13 +2,12 @@
 // Copyright (c) Васильева М.А.. All rights reserved.
 // </copyright>
 
-using System.Linq;
-using Staff.Extensions;
-
 namespace Domain
 {
     using System;
     using System.Collections.Generic;
+
+    using Staff.Extensions;
 
     /// <summary>
     /// Книга.
@@ -16,22 +15,22 @@ namespace Domain
     public class Book
     {
         /// <summary>
-        /// 
+        /// Инициализирует новый экземпляр класса <see cref="Book"/>.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="title"></param>
-        /// <param name="authors"></param>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <param name="title">Название книги.</param>
+        /// <param name="authors">Список авторов.</param>
         public Book(int id, string title, params Author[] authors)
             : this(id, title, new HashSet<Author>(authors))
         {
         }
 
         /// <summary>
-        /// 
+        /// Инициализирует новый экземпляр класса <see cref="Book"/>.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="title"></param>
-        /// <param name="authors"></param>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <param name="title">Название книги.</param>
+        /// <param name="authors">Список авторов.</param>
         public Book(int id, string title, ISet<Author> authors = null)
         {
             this.Id = id;
@@ -46,7 +45,6 @@ namespace Domain
                     author.AddBook(this);
                 }
             }
-
         }
 
         /// <summary>
@@ -64,10 +62,7 @@ namespace Domain
         /// </summary>
         public ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
 
-        public override string ToString()
-        {
-            return $"{this.Title} {this.Authors.Join()}";
-        }
+        /// <inheritdoc/>
+        public override string ToString() => $"{this.Title} {this.Authors.Join()}";
     }
-
 }

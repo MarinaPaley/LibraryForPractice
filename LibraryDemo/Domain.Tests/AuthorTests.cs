@@ -1,14 +1,18 @@
-using System.Collections.Generic;
-
 namespace Domain.Tests
 {
     using System;
-    using NUnit.Framework;
     using Domain;
+    using NUnit.Framework;
 
+    /// <summary>
+    /// The author tests.
+    /// </summary>
     [TestFixture]
     public class AuthorTests
     {
+        /// <summary>
+        /// The to string_ valid data_ success.
+        /// </summary>
         [Test]
         public void ToString_ValidData_Success()
         {
@@ -21,6 +25,9 @@ namespace Domain.Tests
             Assert.AreEqual("Носов Н. Н.", result);
         }
 
+        /// <summary>
+        /// The to string_ valid empty middle name_ success.
+        /// </summary>
         [Test]
         public void ToString_ValidEmptyMiddleName_Success()
         {
@@ -33,12 +40,18 @@ namespace Domain.Tests
             Assert.AreEqual("Носов Н.", result);
         }
 
+        /// <summary>
+        /// The ctor_ wrong data_ empty first name_ fail.
+        /// </summary>
         [Test]
         public void Ctor_WrongData_EmptyFirstName_Fail()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new Author(1, "Носов", "", "Николаевич"));
         }
 
+        /// <summary>
+        /// The add book to author_ valid data_ success.
+        /// </summary>
         [Test]
         public void AddBookToAuthor_ValidData_Success()
         {
