@@ -68,7 +68,7 @@ namespace Domain
             ? $"{this.LastName} {this.FirstName[0]}. {this.MiddleName[0]}.".Trim()
             : $"{this.LastName} {this.FirstName[0]}.".Trim();
 
-    /// <summary>
+        /// <summary>
         /// Добавить книгу автору.
         /// </summary>
         /// <param name="book"> Добавляемая книга. </param>
@@ -77,11 +77,10 @@ namespace Domain
         /// </returns>
         public virtual bool AddBook(Book book)
         {
-            var answer = this.Books.TryAdd(book) ?? throw new ArgumentNullException(nameof(book));
-            return answer;
+            return this.Books.TryAdd(book) ?? throw new ArgumentNullException(nameof(book));
         }
 
-    /// <inheritdoc/>
+        /// <inheritdoc/>
         public override string ToString() => this.FullName;
     }
 }
