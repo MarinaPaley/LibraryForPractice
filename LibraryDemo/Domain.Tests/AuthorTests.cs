@@ -10,6 +10,16 @@ namespace Domain.Tests
     [TestFixture]
     public class AuthorTests
     {
+        private Book book;
+
+        [SetUp]
+        public void Setup()
+        {
+            this.book = new Book(1, "Незнайка");
+        }
+
+        // private static Book GenerateBook() => new Book(1, "Незнайка");
+
         [Test]
         public void ToString_ValidData_Success()
         {
@@ -39,22 +49,25 @@ namespace Domain.Tests
         [Test]
         public void Ctor_WrongData_EmptyFirstName_Fail()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Author(1, "Носов", string.Empty, "Николаевич"));
+            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Author(1, "Носов", string.Empty, "Николаевич"));
         }
 
         [Test]
         public void AddBookToAuthor_ValidData_Success()
         {
             // arrange
-            var author = new Domain.Author(1, "Носов", "Николай", "Николаевич");
-
-            var book = new Domain.Book(1, "Незнайка");
+            var author = GetAuthor("Носов", "Николай", "Николаевич");
 
             // act
-            var result = author.AddBook(book);
+            var result = author.AddBook(this.book);
 
             // assert
             Assert.AreEqual(true, result);
+        }
+
+        private static Author GetAuthor(string lastName = null, string firstName = null, string middleName = null)
+        {
+            return new Author(1, lastName ?? "Тестовый", firstName ?? "Автор", middleName);
         }
     }
 }
