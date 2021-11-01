@@ -10,60 +10,64 @@ namespace Domain.Tests
     [TestFixture]
     public class AuthorTests
     {
-        /// <summary>
-        /// The to string_ valid data_ success.
-        /// </summary>
+        private Book book;
+
+        [SetUp]
+        public void Setup()
+        {
+            this.book = new Book(1, "Незнайка");
+        }
+
+        // private static Book GenerateBook() => new Book(1, "Незнайка");
+
         [Test]
         public void ToString_ValidData_Success()
         {
-            //arrange
+            // arrange
             var author = new Author(1, "Носов", "Николай", "Николаевич");
 
-            //act
+            // act
             var result = author.ToString();
-            //assert
+
+            // assert
             Assert.AreEqual("Носов Н. Н.", result);
         }
 
-        /// <summary>
-        /// The to string_ valid empty middle name_ success.
-        /// </summary>
         [Test]
         public void ToString_ValidEmptyMiddleName_Success()
         {
-            //arrange
+            // arrange
             var author = new Author(1, "Носов", "Николай");
 
-            //act
+            // act
             var result = author.ToString();
-            //assert
+
+            // assert
             Assert.AreEqual("Носов Н.", result);
         }
 
-        /// <summary>
-        /// The ctor_ wrong data_ empty first name_ fail.
-        /// </summary>
         [Test]
         public void Ctor_WrongData_EmptyFirstName_Fail()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Author(1, "Носов", "", "Николаевич"));
+            Assert.Throws<ArgumentOutOfRangeException>(() => _ = new Author(1, "Носов", string.Empty, "Николаевич"));
         }
 
-        /// <summary>
-        /// The add book to author_ valid data_ success.
-        /// </summary>
         [Test]
         public void AddBookToAuthor_ValidData_Success()
         {
-            //arrange
-            var author = new Domain.Author(1, "Носов", "Николай", "Николаевич");
-            var book = new Domain.Book(1, "Незнайка");
+            // arrange
+            var author = GetAuthor("Носов", "Николай", "Николаевич");
 
-            //act
-            var result = author.AddBook(book);
+            // act
+            var result = author.AddBook(this.book);
 
-            //assert
+            // assert
             Assert.AreEqual(true, result);
+        }
+
+        private static Author GetAuthor(string lastName = null, string firstName = null, string middleName = null)
+        {
+            return new Author(1, lastName ?? "Тестовый", firstName ?? "Автор", middleName);
         }
     }
 }
