@@ -16,10 +16,10 @@ namespace Domain
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Author"/>.
         /// </summary>
-        /// <param name="id">id</param>
-        /// <param name="lastName"> Фамилия.</param>
-        /// <param name="firstName">Имя.</param>
-        /// <param name="middleName">Отчество.</param>
+        /// <param name="id"> Идентификатор. </param>
+        /// <param name="lastName"> Фамилия. </param>
+        /// <param name="firstName"> Имя. </param>
+        /// <param name="middleName"> Отчество. </param>
         public Author(int id, string lastName, string firstName, string middleName = null)
         {
             this.Id = id;
@@ -29,34 +29,42 @@ namespace Domain
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Author"/>.
+        /// </summary>
+        [Obsolete("For ORM only", true)]
+        protected Author()
+        {
+        }
+
+        /// <summary>
         /// Уникальный идентификатор.
         /// </summary>
-        public int Id { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
         /// Фамилия.
         /// </summary>
-        public string LastName { get; protected set; }
+        public virtual string LastName { get; protected set; }
 
         /// <summary>
         /// имя.
         /// </summary>
-        public string FirstName { get; protected set; }
+        public virtual string FirstName { get; protected set; }
 
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string MiddleName { get; protected set; }
+        public virtual string MiddleName { get; protected set; }
 
         /// <summary>
         /// Список книг автора.
         /// </summary>
-        public ISet<Book> Books { get; protected set; } = new HashSet<Book>();
+        public virtual ISet<Book> Books { get; protected set; } = new HashSet<Book>();
 
         /// <summary>
         /// Полное имя.
         /// </summary>
-        public string FullName => this.MiddleName != null
+        public virtual string FullName => this.MiddleName != null
             ? $"{this.LastName} {this.FirstName[0]}. {this.MiddleName[0]}.".Trim()
             : $"{this.LastName} {this.FirstName[0]}.".Trim();
 
@@ -67,7 +75,7 @@ namespace Domain
         /// <returns>
         /// <see langword="true"/> если книга была добавлена.
         /// </returns>
-        public bool AddBook(Book book)
+        public virtual bool AddBook(Book book)
         {
             var answer = this.Books.TryAdd(book) ?? throw new ArgumentNullException(nameof(book));
             return answer;

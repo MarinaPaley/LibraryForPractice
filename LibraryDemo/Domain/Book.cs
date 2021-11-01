@@ -48,19 +48,27 @@ namespace Domain
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Book"/>.
+        /// </summary>
+        [Obsolete("For ORM only", true)]
+        protected Book()
+        {
+        }
+
+        /// <summary>
         /// Уникальный идентификатор.
         /// </summary>
-        public int Id { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
         /// Название книги.
         /// </summary>
-        public string Title { get; protected set; }
+        public virtual string Title { get; protected set; }
 
         /// <summary>
         /// Список авторов.
         /// </summary>
-        public ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
+        public virtual ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
 
         /// <inheritdoc/>
         public override string ToString() => $"{this.Title} {this.Authors.Join()}";

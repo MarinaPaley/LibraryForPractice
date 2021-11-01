@@ -5,6 +5,8 @@
 namespace LibraryDemo
 {
     using System;
+    using Domain;
+    using ORM;
 
     /// <summary>
     /// The program.
@@ -16,10 +18,17 @@ namespace LibraryDemo
         /// </summary>
         private static void Main()
         {
-            var author = new Domain.Author(1, "Носов", "Николай");
-            var book = new Domain.Book(1, "Незнайка", author);
+            var author = new Author(1, "Носов", "Николай");
 
-            Console.WriteLine($"{book} {author}");
+            var book = new Book(1, "Незнайка", author);
+
+            Console.WriteLine($"{book} --> {author}");
+
+            using var sessionFactory = NHibernateConfigurator.GetSessionFactory(showSql: true);
+            using var session = sessionFactory.OpenSession();
+            session.Save(author);
+            session.Save(book);
+            session.Flush();
         }
     }
 }
