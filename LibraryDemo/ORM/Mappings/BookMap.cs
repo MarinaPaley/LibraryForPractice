@@ -17,7 +17,7 @@ namespace ORM.Mappings
         /// </summary>
         public BookMap()
         {
-            this.Schema("dbo");
+            // this.Schema("dbo");
 
             this.Table("Books");
 
