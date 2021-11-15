@@ -26,6 +26,8 @@ namespace ORM.Mappings
             this.Map(x => x.Title);
 
             this.HasManyToMany(x => x.Authors).Inverse();
+
+            this.References(x => x.Shelf);
         }
     }
 }

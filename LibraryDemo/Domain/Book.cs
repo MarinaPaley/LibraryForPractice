@@ -70,6 +70,8 @@ namespace Domain
         /// </summary>
         public virtual ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
 
+        public virtual Shelf Shelf { get; protected set; }
+
         /// <inheritdoc/>
         public override string ToString() => $"{this.Title} {this.Authors.Join()}";
     }

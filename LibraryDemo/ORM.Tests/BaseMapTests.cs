@@ -1,42 +1,26 @@
 ﻿// <copyright file="BaseMapTests.cs" company="Васильева М.А.">
 // Copyright (c) Васильева М.А.. All rights reserved.
 // </copyright>
-
-using NHibernate.Tool.hbm2ddl;
-
 namespace ORM.Tests
 {
     using NHibernate;
     using NUnit.Framework;
+    using ORM.Mappings;
 
     /// <summary>
-    /// 
+    /// Базовый класс для тестирования маппингов.
     /// </summary>
     public abstract class BaseMapTests
     {
         /// <summary>
-        /// 
-        /// </summary>
-        protected ISessionFactory SessionFactory { get; private set; }
-
-        /// <summary>
-        /// 
+        /// Сессия для тестовой БД.
         /// </summary>
         protected ISession Session { get; private set; }
-
-        [OneTimeSetUp]
-        public void SetUpOnce()
-        {
-            this.SessionFactory = NHibernateConfigurator.GetSessionFactory(tests: true, showSql: true);
-        }
-
-        [OneTimeTearDown]
-        public void Terminate() => this.SessionFactory?.Dispose();
 
         [SetUp]
         public void Setup()
         {
-            this.Session = this.SessionFactory.OpenSession();
+            this.Session = NHibernateTestsConfigurator.BuildSessionForTest();
         }
 
         [TearDown]
