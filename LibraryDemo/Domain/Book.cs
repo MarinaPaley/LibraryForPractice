@@ -70,6 +70,9 @@ namespace Domain
         /// </summary>
         public virtual ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
 
+        /// <summary>
+        /// Полка.
+        /// </summary>
         public virtual Shelf Shelf { get; protected set; }
 
         /// <inheritdoc/>

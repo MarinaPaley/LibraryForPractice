@@ -2,15 +2,15 @@
 // Copyright (c) Васильева М.А.. All rights reserved.
 // </copyright>
 
-using FluentNHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
-
 namespace ORM.Mappings
 {
-    using NHibernate.Cfg;
     using System.Reflection;
+    using FluentNHibernate.Cfg;
     using FluentNHibernate.Cfg.Db;
     using NHibernate;
+    using NHibernate.Cfg;
+    using NHibernate.Tool.hbm2ddl;
+
     /// <summary>
     /// Класс для настройки для тестов.
     /// </summary>
