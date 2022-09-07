@@ -5,10 +5,13 @@
 namespace LibraryDemo
 {
     using System;
+    using Domain;
+    using ORM;
+using ORM.Repositories;
 
-    /// <summary>
-    /// The program.
-    /// </summary>
+/// <summary>
+/// The program.
+/// </summary>
     internal class Program
     {
         /// <summary>
@@ -16,10 +19,23 @@ namespace LibraryDemo
         /// </summary>
         private static void Main()
         {
-            var author = new Domain.Author(1, "Носов", "Николай");
-            var book = new Domain.Book(1, "Незнайка", author);
+            var author = new Author(1, "Носов", "Николай");
 
-            Console.WriteLine($"{book} {author}");
+            var book = new Book(1, "Незнайка", author);
+
+            Console.WriteLine($"{book} --> {author}");
+
+            using var sessionFactory = NHibernateConfigurator.GetSessionFactory(showSql: true);
+            using var session = sessionFactory.OpenSession();
+            var bookRepo = new BookRepositories(session);
+            bookRepo.Save(book);
+
+            session.Save(author);
+            //session.Save(book);
+            session.Flush();
+
+            var foundBook = bookRepo.Find(x => x.Title == "Незнайка");
+            Console.WriteLine(foundBook);
         }
     }
 }

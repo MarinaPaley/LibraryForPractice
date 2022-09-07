@@ -34,13 +34,13 @@
     <Rule Id="SA1630" Action="None" />
     <Rule Id="SA1631" Action="None" />
     <Rule Id="SA1632" Action="None" />
-    <Rule Id="SA1633" Action="None" />
+    <Rule Id="SA1633" Action="Warning" />
     <Rule Id="SA1634" Action="Warning" />
     <Rule Id="SA1635" Action="Warning" />
     <Rule Id="SA1636" Action="Warning" />
     <Rule Id="SA1637" Action="Warning" />
     <Rule Id="SA1638" Action="Warning" />
-    <Rule Id="SA1639" Action="Warning" />
+    <Rule Id="SA1639" Action="None" />
     <Rule Id="SA1640" Action="Warning" />
     <Rule Id="SA1641" Action="Warning" />
     <Rule Id="SA1642" Action="Warning" />
@@ -91,7 +91,7 @@
     <Rule Id="SA1409" Action="None" />
     <Rule Id="SA1410" Action="Warning" />
     <Rule Id="SA1411" Action="Warning" />
-    <Rule Id="SA1412" Action="None" />
+    <Rule Id="SA1412" Action="Error" />
     <Rule Id="SA1413" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.NamingRules">
@@ -100,7 +100,7 @@
     <Rule Id="SA1302" Action="Warning" />
     <Rule Id="SA1303" Action="Warning" />
     <Rule Id="SA1304" Action="Warning" />
-    <Rule Id="SA1305" Action="None" />
+    <Rule Id="SA1305" Action="Warning" />
     <Rule Id="SA1306" Action="Warning" />
     <Rule Id="SA1307" Action="Warning" />
     <Rule Id="SA1308" Action="Warning" />
@@ -174,9 +174,11 @@
     <Rule Id="SX1101" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA0001" Action="None" />
+    <Rule Id="SA1305" Action="Warning" />
+    <Rule Id="SA1412" Action="Error" />
     <Rule Id="SA1600" Action="None" />
     <Rule Id="SA1623" Action="None" />
-    <Rule Id="SA1633" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.SpacingRules">
     <Rule Id="SA1000" Action="Warning" />
@@ -210,7 +212,7 @@
     <Rule Id="SA1028" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.SpecialRules">
-    <Rule Id="SA0001" Action="Warning" />
+    <Rule Id="SA0001" Action="None" />
     <Rule Id="SA0002" Action="Warning" />
   </Rules>
 </RuleSet>

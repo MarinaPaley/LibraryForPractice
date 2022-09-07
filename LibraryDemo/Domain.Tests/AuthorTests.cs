@@ -1,3 +1,7 @@
+﻿// <copyright file="AuthorTests.cs" company="Васильева М.А.">
+// Copyright (c) Васильева М.А.. All rights reserved.
+// </copyright>
+
 namespace Domain.Tests
 {
     using System;
@@ -18,7 +22,7 @@ namespace Domain.Tests
             this.book = new Book(1, "Незнайка");
         }
 
-        // private static Book GenerateBook() => new Book(1, "Незнайка");
+        //// private static Book GenerateBook() => new Book(1, "Незнайка");
 
         [Test]
         public void ToString_ValidData_Success()
